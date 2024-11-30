@@ -16,8 +16,8 @@ Cài Node js
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/dante4rt/evm-auto-transfer.git
-   cd evm-auto-transfer
+   git clone https://github.com/voztoy/edu_auto_transfer.git
+   cd edu_auto_transfer
    ```
 
 2. Install the necessary packages:
