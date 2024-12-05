@@ -27,7 +27,10 @@ Cài Node js
    npm install ethers@5
    npm install xlsx
    ```
+3. Check số dư ví
+   Dùng index check số dư ví.js, file data chỉ để cột A privatekey, còn lại xóa hết
 
+   
 ### Configuration data.xlsx
 Thay privatekey từ ô A3 trở xuống
 Thay số lần lặp tx ở các ô B2 D2 F2..
