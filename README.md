@@ -1,10 +1,4 @@
-# EDU Auto Transfer
-
-## Features
-
-## Getting Started
-
-### Prerequisites
+# moxie auto buy
 
 Cài Node js
 
@@ -16,7 +10,7 @@ Cài Node js
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/voztoy/edu_auto_transfer.git
+   git clone https://github.com/voztoy/moxie.git
    cd edu_auto_transfer
    ```
 
@@ -27,13 +21,10 @@ Cài Node js
    npm install ethers@5
    npm install xlsx
    ```
-3. Check số dư ví
-   Dùng index check số dư ví.js, file data chỉ để cột A privatekey, còn lại xóa hết
+3.  Configuration data.xlsx
+Thay privatekey từ ô A2 trở xuống
+Copy thay thế hex vào D
 
-   
-### Configuration data.xlsx
-Thay privatekey từ ô A3 trở xuống
-Thay số lần lặp tx ở các ô B2 D2 F2..
 
 ### Usage
 

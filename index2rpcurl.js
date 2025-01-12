@@ -1,8 +1,8 @@
 const { ethers } = require("ethers");
 const xlsx = require("xlsx");
 
-async function sendTransactionBatch(batch) {
-    const provider = new ethers.providers.JsonRpcProvider("https://developer-access-mainnet.base.org");
+async function sendTransactionBatch(batch, rpcUrl) {
+    const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
 
     // Thực hiện các giao dịch trong batch
     const promises = batch.map(async (row) => {
@@ -18,9 +18,9 @@ async function sendTransactionBatch(batch) {
             to: contractAddress,
             value: 0,
             data: hexData,
-            gasLimit: 400000,
-            maxPriorityFeePerGas: ethers.utils.parseUnits("0.000001", "gwei"),
-            maxFeePerGas: ethers.utils.parseUnits("0.006", "gwei"),
+            gasLimit: 500000,
+            maxPriorityFeePerGas: ethers.utils.parseUnits("0.001", "gwei"),
+            maxFeePerGas: ethers.utils.parseUnits("0.02", "gwei"),
         };
 
         try {
@@ -36,8 +36,6 @@ async function sendTransactionBatch(batch) {
 }
 
 async function sendTransaction() {
-    const provider = new ethers.providers.JsonRpcProvider("https://base.llamarpc.com");
-
     const workbook = xlsx.readFile("data.xlsx");
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const data = xlsx.utils.sheet_to_json(sheet, { header: 1 });
@@ -47,8 +45,12 @@ async function sendTransaction() {
     const batchSize = 2;
     for (let i = 0; i < rows.length; i += batchSize) {
         const batch = rows.slice(i, i + batchSize);
-        console.log(`Processing batch ${i / batchSize + 1}`);
-        await sendTransactionBatch(batch);
+        const rpcUrl = (Math.floor(i / batchSize) % 2 === 0)
+            ? "https://base.llamarpc.com"
+            : "https://base.drpc.org";
+
+        console.log(`Processing batch ${Math.floor(i / batchSize) + 1} using RPC: ${rpcUrl}`);
+        await sendTransactionBatch(batch, rpcUrl);
     }
 }
 
