@@ -11,7 +11,7 @@ Cài Node js
 
    ```bash
    git clone https://github.com/voztoy/moxie.git
-   cd edu_auto_transfer
+   cd moxie
    ```
 
 2. Install the necessary packages:
