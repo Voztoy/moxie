@@ -50,7 +50,9 @@ Tương tự send transaction các mạng khác thì set lại file index.js và
 1. Thay đổi các dữ liệu trong Index.js
 
 + Đổi RPC trong Index.js
+   ```bash
 const provider = new ethers.providers.JsonRpcProvider("https://base.llamarpc.com");// Thay thế bằng rpc mạng cần chơi
+   ```
 
 + Nếu rpc khoẻ thì thay đỏi số lần gửi tx mỗi lần:
 const batchSize = 2;// số tx mỗi batch
