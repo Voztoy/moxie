@@ -51,20 +51,23 @@ Tương tự send transaction các mạng khác thì set lại file index.js và
 
 + Đổi RPC trong Index.js
    ```bash
-const provider = new ethers.providers.JsonRpcProvider("https://base.llamarpc.com");// Thay thế bằng rpc mạng cần chơi
+   const provider = new ethers.providers.JsonRpcProvider("https://base.llamarpc.com");// Thay thế bằng rpc mạng cần chơi
    ```
 
 + Nếu rpc khoẻ thì thay đỏi số lần gửi tx mỗi lần:
-const batchSize = 2;// số tx mỗi batch
-
+   ```bash
+   const batchSize = 2;// số tx mỗi batch
+   ```
 + Cài phí hợp lý (kiểm tra kỹ các giao dịch đã làm trước đó)
-       const tx = {
+   ```bash
+   const tx = {
             to: contractAddress,
             value: 0,// tuỳ giao dịch nếu muốn gửi eth thì thay thế ở đây.
             data: hexData,
             gasLimit: 400000,// số gas tối đa cho giao dịch
             maxPriorityFeePerGas: ethers.utils.parseUnits("0.000001", "gwei"),// Phí tối thiểu
             maxFeePerGas: ethers.utils.parseUnits("0.006", "gwei"),// Phí tôi đa
+   ```
   2. Thay đổi trong data.xlsx
 
    -  File data.xlsx chứa các giữ liệu mà file index cần chạy.
