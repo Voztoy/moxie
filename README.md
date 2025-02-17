@@ -68,7 +68,8 @@ Tương tự send transaction các mạng khác thì set lại file index.js và
             maxPriorityFeePerGas: ethers.utils.parseUnits("0.000001", "gwei"),// Phí tối thiểu
             maxFeePerGas: ethers.utils.parseUnits("0.006", "gwei"),// Phí tôi đa
    ```
-  2. Thay đổi trong data.xlsx
+   
+2. Thay đổi trong data.xlsx
 
    -  File data.xlsx chứa các giữ liệu mà file index cần chạy.
      
